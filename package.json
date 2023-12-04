@@ -4,27 +4,28 @@
   "description": "sit 725 week 4 prac",
   "main": "server.js",
   "scripts": {
-  "start": "node server.js"
+    "start": "node server_mongodb.js"
   },
   "repository": {
-  "type": "git",
-  "url": "git+https://github.com/ChoudharyNavit22/sit725-2021-t2-prac3.git"
+    "type": "git",
+    "url": "git+https://github.com/ChoudharyNavit22/sit725-2021-t2-prac3.git"
   },
   "keywords": [
-  "Nodejs",
-  "Express",
-  "Materialize",
-  "HTML",
-  "JS",
-  "CSS"
+    "Nodejs",
+    "Express",
+    "Materialize",
+    "HTML",
+    "JS",
+    "CSS"
   ],
   "author": "Navit Choudhary",
   "license": "MIT",
   "bugs": {
-  "url": "https://github.com/ChoudharyNavit22/sit725-2021-t2-prac3/issues"
+    "url": "https://github.com/ChoudharyNavit22/sit725-2021-t2-prac3/issues"
   },
   "homepage": "https://github.com/ChoudharyNavit22/sit725-2021-t2-prac3#readme",
   "dependencies": {
-  "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongodb": "^6.3.0"
   }
-  }
+}
