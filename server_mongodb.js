@@ -1,4 +1,5 @@
 let express = require('express');
+
 let app = express();
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb://127.0.0.1:27017";
@@ -36,16 +37,6 @@ app.get('/api/cats', async (req,res) => {
     const result = await getAllCats(collection);
     console.log(result);
     res.json({statusCode:200, data:result, message:'get all cats successful'});
-
-    // getAllCats((err,result)=>{
-    //     if (!err) {
-    //         console.log(result);
-    //         res.json({statusCode:200, data:result, message:'get all cats successful'});
-    //     }
-    //     else {
-    //         console.log(err);
-    //     }
-    // });
 });
 
 app.post('/api/cat', (req,res)=>{

@@ -1,10 +1,10 @@
 {
   "name": "sit725-2021-t2-prac3",
   "version": "1.0.0",
-  "description": "sit 725 week 4 prac",
+  "description": "sit 725 week 5 prac",
   "main": "server.js",
   "scripts": {
-    "start": "node server_mongodb.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
