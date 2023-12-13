@@ -1,29 +1,26 @@
-const client = require("../db_conn")
-let collection;
+const { client, runDBConnection } = require("../db_conn");
 
-async function fetch_db() { 
-    try {
-        await client.connect();
-        collection = client.db('Cat').collection('Cat');
-        //console.log(collection);
-    } catch(ex) {
-        console.error(ex);
-    }
-}
+async function postCat(cat) {
+  await runDBConnection();
 
-function postCat(cat,callback) {
-    collection.insertOne(cat,callback);
+  const collection = client.db("Cat").collection("Cat");
+  return new Promise((resolve, reject) => {
+    collection.insertOne(cat, (err, result) => {
+      if (err) {
+        console.error('Error during insert operation:', err);
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    });
+  });
 }
 
 async function getAllCats() {
-    try {
-        // Use 'find' to get all documents in the collection
-        const result = await collection.find({}).toArray();
-        return result;
-    } catch (error) {
-        // Handle any errors that occurred during the database operation
-        throw new Error(error);
-    }
-}  
+  await runDBConnection();
 
-module.exports = {fetch_db, postCat, getAllCats}
+  const collection = client.db("Cat").collection("Cat");
+  return collection.find({}).toArray();
+}
+
+module.exports = { postCat, getAllCats };

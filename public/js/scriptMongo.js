@@ -38,8 +38,7 @@ function postCat(cat){
 
 function getAllCats(){
     $.get('/api/cats')
-    .done(function(response) {
-        console.log(response.data);
+    .done(function(response) { 
         if (response.statusCode === 200) {
             addCards(response.data);
         }
@@ -47,7 +46,6 @@ function getAllCats(){
     // response's data is in array format, so we can use it
        
 }
-
 $(document).ready(function(){
     $('.materialboxed').materialbox();
     $('#formSubmit').click(()=>{
