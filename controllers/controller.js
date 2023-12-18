@@ -33,15 +33,4 @@ const getAllCats = async (req, res) => {
   };
 
   
-// const getAllCats = async (req, res) => {
-//     runDBConnection().then(async () => {
-//     collection = client.db("Cat").collection("Cat");
-//     // Use toArray() to convert the cursor to an array of documents
-//     const result = await collection.find({}).toArray().catch(error => {
-//         console.error('Error during find operation:', error);
-//       });         
-//       //console.log("Result: ", result);
-//       res.json({ statusCode: 200, data: result, message: "success!!" });
-//     })}; 
-
 module.exports = { postCat, getAllCats };
