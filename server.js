@@ -1,4 +1,5 @@
 let express = require("express");
+
 let db_conn = require("./db_conn");
 let controller = require("./controllers/controller");
 
@@ -7,9 +8,13 @@ let http = require("http").createServer(app);
 
 let port = process.env.port || 3000;
 
-let io = require("socket.io")(http);
 
 const path = require("path");
+
+let io = require("socket.io")(http, { /* options */ });
+
+require('dotenv').config({ path: path.join(__dirname, '.env') });
+
 // Set the views directory
 app.set("views", path.join(__dirname, "views"));
 // Set the view engine to use
@@ -43,7 +48,6 @@ app.get("/addTwoNumbers/:firstNumber/:secondNumber", function (req, res, next) {
   }
 });
 
-//socket test
 io.on("connection", (socket) => {
   console.log("a user connected");
   socket.on("disconnect", () => {
@@ -53,6 +57,7 @@ io.on("connection", (socket) => {
     socket.emit("number", parseInt(Math.random() * 10));
   }, 1000);
 });
+ 
 
 http.listen(port, () => {
   console.log("Listening on port ", port);
