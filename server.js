@@ -1,8 +1,6 @@
 let express = require("express");
 
-let db_conn = require("./db_conn");
 let controller = require("./controllers/controller");
-
 let app = express();
 let http = require("http").createServer(app);
 
